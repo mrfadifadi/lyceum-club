@@ -1,0 +1,43 @@
+{
+  "name": "lyceum/club-api",
+  "type": "project",
+  "description": "Laravel API for Lyceum Club",
+  "require": {
+    "php": "^8.2",
+    "ext-mbstring": "*",
+    "ext-pdo_mysql": "*",
+    "firebase/php-jwt": "^7.2",
+    "laravel/framework": "^12.0"
+  },
+  "require-dev": {
+    "ext-pdo_sqlite": "*",
+    "mockery/mockery": "^1.6",
+    "phpunit/phpunit": "^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "@php vendor/bin/phpunit",
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover --ansi"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

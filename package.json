@@ -1,0 +1,23 @@
+{
+  "name": "lyceum-club",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=lyceum-club-batna",
+    "build:web": "npm run build --workspace=lyceum-club-batna",
+    "test:web": "npm run test --workspace=lyceum-club-batna"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "mysql2": "^3.24.6"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6"
+  }
+}

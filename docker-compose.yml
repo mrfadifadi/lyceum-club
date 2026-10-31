@@ -1,0 +1,44 @@
+services:
+  web:
+    build:
+      context: ./apps/web
+      args:
+        VITE_USE_MOCK_DATA: "false"
+        VITE_API_BASE_URL: http://localhost:8000/api/v1
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+  api:
+    build: ./apps/api
+    env_file: ./apps/api/.env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./apps/web/src/data:/var/www/web/src/data:ro
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: lyceum
+      MYSQL_USER: lyceum
+      MYSQL_PASSWORD: change-me-for-local-development
+      MYSQL_ROOT_PASSWORD: change-me-for-local-development
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-pchange-me-for-local-development"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

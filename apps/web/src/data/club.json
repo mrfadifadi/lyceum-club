@@ -1,0 +1,26 @@
+{
+  "name": "Lyceum Club",
+  "city": "Batna, Algeria",
+  "tagline": "A student club in Batna.",
+  "intro": "Lyceum Club brings students together in Batna to learn, meet and build things as a community.",
+  "mission": "Placeholder: write the club's official mission here.",
+  "vision": "Placeholder: write the club's official vision here.",
+  "values": [
+    {
+      "title": "Learning",
+      "text": "Placeholder value — replace with the club's real values."
+    },
+    {
+      "title": "Community",
+      "text": "Placeholder value — replace with the club's real values."
+    },
+    {
+      "title": "Initiative",
+      "text": "Placeholder value — replace with the club's real values."
+    }
+  ],
+  "activities": ["Events", "Formations (workshops)", "Conventions", "News & announcements"],
+  "contact": { "email": "", "phone": "", "address": "" },
+  "socials": [],
+  "team": []
+}
